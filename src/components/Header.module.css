@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.8rem 4rem;
+
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: white;
+  text-transform: uppercase;
+}
+
+.logo span {
+  font-weight: 300;
+  opacity: 0.6;
+  margin: 0 2px;
+}
+
+/* ================= NAV ================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ================= LINKS ================= */
+
+.link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.3rem;
+  border-radius: 40px;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Active state */
+.linkActive {
+  background: white;
+  color: black;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 1.2rem 2rem;
+  }
+
+  .nav {
+    gap: 0.3rem;
+  }
+
+  .link {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}

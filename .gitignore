@@ -1,0 +1,4 @@
+# Node\nnode_modules/\n\n# Logs\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n.pnpm-debug.log*\n\n# Build output\ndist/\n\n# Vite cache\n.vite/\n\n# Editor directories and files\n.vscode/\n.idea/\n*.suo\n*.ntvs*\n*.njsproj\n*.sln\n*.sw?\n\n# OS-specific\n.DS_Store\nThumbs.db\n\n# Env / secrets\n.env\n.env.*.local\n
+
+node_modules
+dist
