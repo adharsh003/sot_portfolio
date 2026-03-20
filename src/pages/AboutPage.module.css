@@ -9,28 +9,6 @@
 }
 
 
-/* ================= HERO ================= */
-
-.hero {
-  padding: 4rem 10% 3rem;
-  max-width: 900px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #ffffff;
-  letter-spacing: -0.8px;
-}
-
-.hero p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #aaaaaa;
-}
-
-
 /* ================= SECTION BLOCK ================= */
 
 .section {
@@ -38,48 +16,45 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 5rem;
-
   padding: 6rem 10%;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 
-  /* fade */
+  /* scroll reveal */
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeUp 0.8s ease forwards;
+  transition: all 0.8s ease;
 }
 
-.section:nth-child(2) {
-  animation-delay: 0.2s;
-}
+.section:nth-child(2) { transition-delay: 0.15s; }
+.section:nth-child(3) { transition-delay: 0.3s; }
 
-.section:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
 /* ================= TEXT ================= */
 
+/* Cormorant Garamond for section headings */
 .left h2 {
-  font-size: 2.4rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
   margin-bottom: 1.8rem;
   color: #ffffff;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .left p {
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.9;
   color: #b5b5b5;
   max-width: 500px;
 }
+
 
 /* ================= CUSTOM BORDER BOX ================= */
 
@@ -123,7 +98,6 @@
   filter: brightness(1);
 }
 
-/* Slightly reduce last image */
 .section:last-child .right img {
   height: 380px;
 }
@@ -151,19 +125,5 @@
 
   .right img {
     height: 300px;
-  }
-}
-
-/* ================= FADE ON SCROLL ================= */
-
-
-
-.section:nth-child(2) { animation-delay: 0.2s; }
-.section:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

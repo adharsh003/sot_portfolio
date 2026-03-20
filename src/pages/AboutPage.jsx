@@ -1,7 +1,22 @@
 import Header from "../components/Header";
 import styles from "./AboutPage.module.css";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+
+  useEffect(() => {
+  const sections = document.querySelectorAll(`.${styles.section}`);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(styles.show);
+      }
+    });
+  });
+
+  sections.forEach(sec => observer.observe(sec));
+}, []);
 
   return (
     <div className={styles.page}>
@@ -85,3 +100,4 @@ export default function AboutPage() {
     </div>
   );
 }
+
