@@ -35,6 +35,18 @@
   background: linear-gradient(to bottom, transparent 40%, rgba(14,14,14,0.7) 72%, #0e0e0e 100%);
 }
 
+/* Optional real photo behind the hero gradients */
+.pageHeroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0.35;
+}
+
 .pageHeroContent {
   position: relative;
   z-index: 2;
@@ -399,37 +411,14 @@
 
 /* ================= SLIDE PANEL ================= */
 
-.panel {
-  position: fixed;
-  top: 0; right: 0; bottom: 0;
-  width: min(680px, 96vw);
-  background: #141413;
-  z-index: 101;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  animation: slideIn 0.4s cubic-bezier(0.22,0.61,0.36,1) forwards;
-  box-shadow: -32px 0 100px rgba(0,0,0,0.7);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.08) transparent;
-}
-
-.panel::-webkit-scrollbar       { width: 3px; }
-.panel::-webkit-scrollbar-track { background: transparent; }
-.panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-
-@keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0.5; }
-  to   { transform: translateX(0);    opacity: 1; }
-}
 
 .closeBtn {
-  position: fixed;
-  top: 1.4rem;
-  right: calc(min(680px, 96vw) - 3.2rem);
-  z-index: 102;
-  width: 36px;
-  height: 36px;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
@@ -441,6 +430,7 @@
   transition: all 0.25s ease;
   backdrop-filter: blur(8px);
   font-family: inherit;
+  font-size: 0.9rem;
 }
 
 .closeBtn:hover {
@@ -450,34 +440,62 @@
   border-color: rgba(255,255,255,0.28);
 }
 
-/* ================= PHOTO AREA ================= */
+/* ================= MODAL ================= */
 
-.photoArea { flex-shrink: 0; }
+.modalWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 2vw;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  max-height: 96vh;
+  background: #141413;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.05);
+  animation: modalIn 0.38s cubic-bezier(0.22,0.61,0.36,1) forwards;
+  pointer-events: auto;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+/* ================= PHOTO AREA (left column) ================= */
+
+.photoArea {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  min-height: 0;
+  overflow: hidden; /* prevent thumb strip from blowing out modal height */
+}
 
 .photoMain {
   position: relative;
-  height: 360px;
+  flex: 1 1 0;
+  min-height: 0;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  transition: background 0.4s ease;
 }
 
 .photoOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.65) 100%);
-}
-
-.photoLabel {
-  position: relative;
-  z-index: 2;
-  padding: 0 1.8rem 1.6rem;
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .photoArrow {
@@ -487,7 +505,7 @@
   z-index: 3;
   width: 38px; height: 38px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.45);
   border: 1px solid rgba(255,255,255,0.12);
   color: rgba(255,255,255,0.75);
   font-size: 1.3rem;
@@ -510,35 +528,36 @@
 .photoArrowLeft  { left: 1rem; }
 .photoArrowRight { right: 1rem; }
 
-.photoDots {
+.photoCounter {
   position: absolute;
-  bottom: 1.2rem; right: 1.8rem;
+  bottom: 0.9rem;
+  right: 1rem;
   z-index: 3;
-  display: flex;
-  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
 }
-
-.photoDot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.28);
-  border: none; cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0; font-family: inherit;
-}
-
-.photoDotActive { background: #fff; transform: scale(1.4); }
-
 .thumbStrip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
   gap: 2px;
   background: #0c0c0b;
+  flex-shrink: 0;
+  scrollbar-width: none;
+  max-height: 54px; /* never taller than one row of thumbs */
 }
+.thumbStrip::-webkit-scrollbar { display: none; }
 
 .thumb {
   position: relative;
-  height: 76px;
+  flex: 0 0 72px;
+  height: 52px;
   overflow: hidden;
   cursor: pointer;
   border: none;
@@ -556,175 +575,25 @@
 }
 
 .thumbActive .thumbOverlay {
-  background: rgba(0,0,0,0.08);
-  outline: 2px solid rgba(255,255,255,0.45);
+  background: rgba(0,0,0,0.05);
+  outline: 2px solid rgba(255,255,255,0.5);
   outline-offset: -2px;
 }
-
-.thumbLabel {
-  position: absolute;
-  bottom: 0.4rem; left: 0.6rem;
-  z-index: 2;
-  font-family: var(--font-sans);
-  font-size: 0.55rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-
-/* ================= PANEL BODY ================= */
+/* ================= PANEL BODY (right column) ================= */
 
 .panelBody {
-  padding: 2.4rem 2.2rem 5rem;
+  padding: 3rem 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
 }
 
-.panelHeader { display: flex; flex-direction: column; gap: 0.5rem; }
-
-.panelMeta {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.04em;
-}
-
-.metaDot { opacity: 0.28; }
-
-.panelBadge {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.55);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.18rem 0.65rem;
-  border-radius: 50px;
-}
-
-.panelType {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
-  font-weight: 500;
-}
-
-.panelName {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.panelClient {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.3);
-  margin-top: 0.15rem;
-}
-
-.panelDesc {
-  font-family: var(--font-sans);
-  font-size: 0.93rem;
-  line-height: 1.9;
-  color: rgba(255,255,255,0.58);
-}
-
-.panelDivider { height: 1px; width: 40px; border-radius: 2px; opacity: 0.35; }
-
-.panelDetails {
-  list-style: none; padding: 0; margin: 0;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px; overflow: hidden;
-}
-
-.panelDetailRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.88rem 1.2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.045);
-  transition: background 0.18s ease;
-}
-
-.panelDetailRow:last-child { border-bottom: none; }
-.panelDetailRow:hover      { background: rgba(255,255,255,0.025); }
-
-.panelDetailLabel {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.24);
-  font-weight: 500;
-}
-
-.panelDetailValue {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-  font-weight: 400;
-  text-align: right;
-}
-
-.panelNav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-.panelNavBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.48);
-  padding: 0.55rem 1rem;
-  border-radius: 50px;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.22s ease;
-  max-width: 180px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.panelNavBtn:hover:not(.panelNavDisabled) {
-  border-color: rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.04);
-}
-
-.panelNavBtnRight { flex-direction: row-reverse; }
-.panelNavDisabled { opacity: 0.18; cursor: default; }
-
-.panelNavLabel {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-}
-
-.panelNavCount {
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.18);
-  letter-spacing: 0.1em;
-  flex-shrink: 0;
-}
+.panelBody::-webkit-scrollbar       { width: 3px; }
+.panelBody::-webkit-scrollbar-track { background: transparent; }
+.panelBody::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
 
 /* ================= FOOTER CTA ================= */
 
@@ -787,9 +656,17 @@
   .projectGrid { grid-template-columns: 1fr; }
   .card        { height: 420px; }
 
-  .panel    { width: 100vw; }
-  .closeBtn { right: 1rem; }
-  .photoMain { height: 260px; }
+  /* Stack modal to single column on mobile */
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 55vh 1fr;
+    max-height: 92vh;
+    border-radius: 12px;
+  }
+
+  .photoArea { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .photoMain { height: 100%; }
+  .panelBody { padding: 2rem 1.6rem; }
 
   .footerCta { padding: 6rem 6%; }
 }

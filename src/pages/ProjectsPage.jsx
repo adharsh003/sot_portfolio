@@ -4,6 +4,23 @@ import { useEffect, useRef, useState } from "react";
 
 /* ─────────────────────────────────────────
    DATA
+   
+   HOW TO ADD PHOTOS:
+   Each project has a `photos` array. Each photo object has:
+     - src: path to the image (put images in /public/projects/)
+     - label: caption shown on the photo
+   
+   NAMING CONVENTION for your /public/projects/ folder:
+     kuttanad-1.jpg, kuttanad-2.jpg, kuttanad-3.jpg
+     kakkanad-1.jpg, kakkanad-2.jpg, kakkanad-3.jpg
+     calicut-1.jpg, calicut-2.jpg, calicut-3.jpg
+     perinthalmanna-1.jpg, perinthalmanna-2.jpg, perinthalmanna-3.jpg
+     annara-1.jpg, annara-2.jpg, annara-3.jpg
+     steam-mugs-1.jpg, steam-mugs-2.jpg, steam-mugs-3.jpg
+     thrissur-1.jpg, thrissur-2.jpg, thrissur-3.jpg
+     wayanad-1.jpg, wayanad-2.jpg, wayanad-3.jpg
+   
+   The `fallbackBg` is shown if the image hasn't been added yet.
 ───────────────────────────────────────── */
 const ALL_PROJECTS = [
   {
@@ -22,10 +39,14 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Tropical Vernacular" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#1a2a1a,#2d3d20,#1a2510)", label: "Exterior — Front" },
-      { bg: "linear-gradient(160deg,#12201a,#223a28,#0e1a10)", label: "Courtyard" },
-      { bg: "linear-gradient(120deg,#0e1c0e,#1e3016,#0a120a)", label: "Garden View" },
+      { src: "/projects/kuttanad/kuttanad1.png", alt: "Exterior — Front",  fallbackBg: "linear-gradient(135deg,#1a2a1a,#2d3d20,#1a2510)" },
+      { src: "/projects/kuttanad/kuttanad2.png", alt: "Courtyard",         fallbackBg: "linear-gradient(160deg,#12201a,#223a28,#0e1a10)" },
+      { src: "/projects/kuttanad/kuttanad3.png", alt: "Garden View",       fallbackBg: "linear-gradient(120deg,#0e1c0e,#1e3016,#0a120a)" },
+      { src: "/projects/kuttanad/kuttanad4.png", alt: "Verandah",          fallbackBg: "linear-gradient(145deg,#0e1c0e,#1a2e12,#0a1408)" },
+      { src: "/projects/kuttanad/kuttanad5.png", alt: "River Facing",      fallbackBg: "linear-gradient(130deg,#0c1a0c,#182a10,#081208)" },
+      { src: "/projects/kuttanad/kuttanad6.png", alt: "Interior Living",   fallbackBg: "linear-gradient(155deg,#101e10,#1c3014,#0c1409)" },
     ],
+    heroImage: "/projects/kuttanad/kuttanad1.png",
     heroGradient: "linear-gradient(160deg,#0e1c0e,#1e3a16,#0a1a08)",
     accentColor: "#7aaa50",
   },
@@ -46,10 +67,10 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Contemporary Tropical" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#0d1520,#1a2535,#0a1018)", label: "Facade — Night" },
-      { bg: "linear-gradient(150deg,#0a1220,#16222e,#080e18)", label: "Living Spaces" },
-      { bg: "linear-gradient(120deg,#08101a,#121e2a,#060c14)", label: "Terraces" },
+      { src: "/projects/kakkanad/kakkanad1.png", alt: "Facade — Night",      fallbackBg: "linear-gradient(135deg,#0d1520,#1a2535,#0a1018)" },
+      { src: "/projects/kakkanad/kakkanad2.png", alt: "Living Spaces",        fallbackBg: "linear-gradient(150deg,#0a1220,#16222e,#080e18)" },
     ],
+    heroImage: "/projects/kakkanad/kakkanad1.png",
     heroGradient: "linear-gradient(160deg,#08101e,#152030,#080c18)",
     accentColor: "#5080b0",
   },
@@ -70,10 +91,11 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Terrain-Responsive" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#1a1010,#2d1a10,#1a0f08)", label: "Site Perspective" },
-      { bg: "linear-gradient(150deg,#150c0c,#251610,#100a06)", label: "Section View" },
-      { bg: "linear-gradient(120deg,#120a08,#1e1208,#0c0806)", label: "Entry Court" },
+      { src: "/projects/calicut/calicut1.png", alt: "Site Perspective", fallbackBg: "linear-gradient(135deg,#1a1010,#2d1a10,#1a0f08)" },
+      { src: "/projects/calicut/calicut2.png", alt: "Section View",     fallbackBg: "linear-gradient(150deg,#150c0c,#251610,#100a06)" },
+      { src: "/projects/calicut/calicut3.png", alt: "Entry Court",      fallbackBg: "linear-gradient(120deg,#120a08,#1e1208,#0c0806)" },
     ],
+    heroImage: "/projects/calicut/calicut1.png",
     heroGradient: "linear-gradient(160deg,#180e08,#2a1808,#140a04)",
     accentColor: "#c07040",
   },
@@ -94,10 +116,12 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Climate-Responsive" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#1a2010,#283018,#151a0c)", label: "Exterior" },
-      { bg: "linear-gradient(150deg,#141a0e,#202814,#0e120a)", label: "Roof Detail" },
-      { bg: "linear-gradient(120deg,#101608,#1c2210,#0c1006)", label: "Landscape" },
+      { src: "/projects/perinthalmanna/perinthalmanna1.png", alt: "Exterior",        fallbackBg: "linear-gradient(135deg,#1a2010,#283018,#151a0c)" },
+      { src: "/projects/perinthalmanna/perinthalmanna2.png", alt: "Roof Detail",     fallbackBg: "linear-gradient(150deg,#141a0e,#202814,#0e120a)" },
+      { src: "/projects/perinthalmanna/perinthalmanna3.png", alt: "Landscape",       fallbackBg: "linear-gradient(120deg,#101608,#1c2210,#0c1006)" },
+      { src: "/projects/perinthalmanna/perinthalmanna4.png", alt: "Shaded Openings", fallbackBg: "linear-gradient(145deg,#121808,#1e2612,#0e1408)" },
     ],
+    heroImage: "/projects/perinthalmanna/perinthalmanna1.png",
     heroGradient: "linear-gradient(160deg,#101808,#202e10,#0c1406)",
     accentColor: "#90b050",
   },
@@ -118,10 +142,12 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Courtyard Tropical" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#101520,#181f2a,#0c1018)", label: "Courtyard" },
-      { bg: "linear-gradient(150deg,#0c1018,#141a24,#080c14)", label: "Staircase" },
-      { bg: "linear-gradient(120deg,#080e16,#10161e,#060a10)", label: "Bedroom Wing" },
+      { src: "/projects/annara/annara1.png", alt: "Courtyard",     fallbackBg: "linear-gradient(135deg,#101520,#181f2a,#0c1018)" },
+      { src: "/projects/annara/annara2.png", alt: "Staircase",     fallbackBg: "linear-gradient(150deg,#0c1018,#141a24,#080c14)" },
+      { src: "/projects/annara/annara3.png", alt: "Bedroom Wing",  fallbackBg: "linear-gradient(120deg,#080e16,#10161e,#060a10)" },
+      { src: "/projects/annara/annara4.png", alt: "Sky Opening",   fallbackBg: "linear-gradient(145deg,#0a1018,#121820,#06080e)" },
     ],
+    heroImage: "/projects/annara/annara1.png",
     heroGradient: "linear-gradient(160deg,#0a1020,#14202e,#080c18)",
     accentColor: "#6090b0",
   },
@@ -141,10 +167,11 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Brutalist / Adaptive Reuse" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#1a1508,#2a2010,#150f05)", label: "Interior" },
-      { bg: "linear-gradient(150deg,#161208,#22180c,#100d04)", label: "Shutter Wall" },
-      { bg: "linear-gradient(120deg,#120e06,#1c1408,#0c0a04)", label: "Bar Counter" },
+      { src: "/projects/steam-mugs/steam-mugs1.png", alt: "Interior",       fallbackBg: "linear-gradient(135deg,#1a1508,#2a2010,#150f05)" },
+      { src: "/projects/steam-mugs/steam-mugs2.png", alt: "Shutter Wall",   fallbackBg: "linear-gradient(150deg,#161208,#22180c,#100d04)" },
+      { src: "/projects/steam-mugs/steam-mugs3.png", alt: "Bar Counter",    fallbackBg: "linear-gradient(120deg,#120e06,#1c1408,#0c0a04)" },
     ],
+    heroImage: "/projects/steam-mugs/steam-mugs1.png",
     heroGradient: "linear-gradient(160deg,#1a1204,#2e2008,#140e02)",
     accentColor: "#d0a040",
   },
@@ -166,10 +193,10 @@ const ALL_PROJECTS = [
       { label: "Style",      value: "Contemporary Urban" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#080d18,#101828,#060a12)", label: "Street View" },
-      { bg: "linear-gradient(150deg,#060a14,#0e1422,#04080e)", label: "Commercial Level" },
-      { bg: "linear-gradient(120deg,#040810,#0c121c,#04060c)", label: "Residential Floors" },
+      { src: "/projects/thrissur/thrissur1.png", alt: "Street View",       fallbackBg: "linear-gradient(135deg,#080d18,#101828,#060a12)" },
+      { src: "/projects/thrissur/thrissur2.png", alt: "Commercial Level",  fallbackBg: "linear-gradient(150deg,#060a14,#0e1422,#04080e)" },
     ],
+    heroImage: "/projects/thrissur/thrissur1.png",
     heroGradient: "linear-gradient(160deg,#060a18,#0e1628,#040810)",
     accentColor: "#5070c0",
   },
@@ -189,159 +216,284 @@ const ALL_PROJECTS = [
       { label: "Style",     value: "Contemporary Tropical" },
     ],
     photos: [
-      { bg: "linear-gradient(135deg,#0a1a10,#122518,#08120c)", label: "Entrance" },
-      { bg: "linear-gradient(150deg,#081510,#0e1e14,#060e0a)", label: "Lounge Area" },
-      { bg: "linear-gradient(120deg,#06100a,#0c1a10,#040c06)", label: "Landscape" },
+      { src: "/projects/wayanad/wayanad1.png",  alt: "Entrance",      fallbackBg: "linear-gradient(135deg,#0a1a10,#122518,#08120c)" },
+      { src: "/projects/wayanad/wayanad2.png",  alt: "Lounge Area",   fallbackBg: "linear-gradient(150deg,#081510,#0e1e14,#060e0a)" },
+      { src: "/projects/wayanad/wayanad3.png",  alt: "Dormitory",     fallbackBg: "linear-gradient(120deg,#060e0a,#0a1810,#040c08)" },
+      { src: "/projects/wayanad/wayanad4.png",  alt: "Green Wall",    fallbackBg: "linear-gradient(145deg,#081812,#0e2016,#060e0c)" },
+      { src: "/projects/wayanad/wayanad5.png",  alt: "Stone Detail",  fallbackBg: "linear-gradient(130deg,#0a1a10,#101e14,#080e0a)" },
+      { src: "/projects/wayanad/wayanad6.png",  alt: "Timber Deck",   fallbackBg: "linear-gradient(155deg,#081610,#0c1c14,#060e0a)" },
+      { src: "/projects/wayanad/wayanad7.png",  alt: "Courtyard",     fallbackBg: "linear-gradient(135deg,#0a1a10,#122518,#08120c)" },
+      { src: "/projects/wayanad/wayanad8.png",  alt: "Seating",       fallbackBg: "linear-gradient(150deg,#081510,#0e1e14,#060e0a)" },
+      { src: "/projects/wayanad/wayanad9.png",  alt: "Exterior",      fallbackBg: "linear-gradient(120deg,#060e0a,#0a1810,#040c08)" },
+      { src: "/projects/wayanad/wayanad10.png", alt: "Reception",     fallbackBg: "linear-gradient(145deg,#081812,#0e2016,#060e0c)" },
+      { src: "/projects/wayanad/wayanad11.png", alt: "Corridor",      fallbackBg: "linear-gradient(130deg,#0a1a10,#101e14,#080e0a)" },
+      { src: "/projects/wayanad/wayanad12.png", alt: "Bath",          fallbackBg: "linear-gradient(155deg,#081610,#0c1c14,#060e0a)" },
+      { src: "/projects/wayanad/wayanad13.png", alt: "Bedroom",       fallbackBg: "linear-gradient(135deg,#0a1a10,#122518,#08120c)" },
+      { src: "/projects/wayanad/wayanad14.png", alt: "Night View",    fallbackBg: "linear-gradient(150deg,#081510,#0e1e14,#060e0a)" },
+      { src: "/projects/wayanad/wayanad15.png", alt: "Dining",        fallbackBg: "linear-gradient(120deg,#060e0a,#0a1810,#040c08)" },
+      { src: "/projects/wayanad/wayanad16.png", alt: "Pool Deck",     fallbackBg: "linear-gradient(145deg,#081812,#0e2016,#060e0c)" },
+      { src: "/projects/wayanad/wayanad17.png", alt: "Canopy",        fallbackBg: "linear-gradient(130deg,#0a1a10,#101e14,#080e0a)" },
+      { src: "/projects/wayanad/wayanad18.png", alt: "Landscape",     fallbackBg: "linear-gradient(155deg,#081610,#0c1c14,#060e0a)" },
     ],
-    heroGradient: "linear-gradient(160deg,#081408,#102010,#060e06)",
-    accentColor: "#60a060",
+    heroImage: "/projects/wayanad/wayanad1.png",
+    heroGradient: "linear-gradient(160deg,#061008,#0c1c10,#040a06)",
+    accentColor: "#50a068",
   },
 ];
 
 const FILTERS = [
-  { key: "all",         label: "All",        count: ALL_PROJECTS.length },
-  { key: "residential", label: "Residential", count: ALL_PROJECTS.filter(p => p.type === "residential").length },
-  { key: "commercial",  label: "Commercial",  count: ALL_PROJECTS.filter(p => p.type === "commercial").length },
-  { key: "mixed",       label: "Mixed Use",   count: ALL_PROJECTS.filter(p => p.type === "mixed").length },
+  { key: "all",         label: "All Projects",  count: ALL_PROJECTS.length },
+  { key: "residential", label: "Residential",   count: ALL_PROJECTS.filter(p => p.type === "residential").length },
+  { key: "commercial",  label: "Commercial",    count: ALL_PROJECTS.filter(p => p.type === "commercial").length },
+  { key: "mixed",       label: "Mixed Use",     count: ALL_PROJECTS.filter(p => p.type === "mixed").length },
 ];
+
+/* ─────────────────────────────────────────
+   PHOTO — renders img if available, else gradient fallback
+───────────────────────────────────────── */
+function ProjectPhoto({ photo, className, style }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        background: imgFailed ? photo.fallbackBg : undefined,
+      }}
+    >
+      {!imgFailed && (
+        <img
+          src={photo.src}
+          alt={photo.label}
+          onError={() => setImgFailed(true)}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   CARD HERO — renders image or gradient for the card background
+───────────────────────────────────────── */
+function CardHero({ project }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  if (imgFailed || !project.heroImage) {
+    return (
+      <div
+        className={styles.cardBg}
+        style={{ background: project.heroGradient }}
+      />
+    );
+  }
+
+  return (
+    <div className={styles.cardBg} style={{ background: project.heroGradient }}>
+      <img
+        src={project.heroImage}
+        alt={project.name}
+        onError={() => setImgFailed(true)}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+          transition: "transform 0.6s ease",
+        }}
+      />
+      {/* Gradient overlay so text stays readable over any photo */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
+        pointerEvents: "none",
+      }} />
+    </div>
+  );
+}
 
 /* ─────────────────────────────────────────
    DETAIL PANEL
 ───────────────────────────────────────── */
 function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const panelRef = useRef(null);
+  const [photoIdx, setPhotoIdx] = useState(0);
 
-  const currentIdx = allFiltered.findIndex(p => p.id === project.id);
-  const hasPrev = currentIdx > 0;
-  const hasNext = currentIdx < allFiltered.length - 1;
-
-  useEffect(() => setPhotoIndex(0), [project.id]);
+  useEffect(() => { setPhotoIdx(0); }, [project.id]);
 
   useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape")      onClose();
-      if (e.key === "ArrowRight" && hasNext) onNavigate(allFiltered[currentIdx + 1]);
-      if (e.key === "ArrowLeft"  && hasPrev) onNavigate(allFiltered[currentIdx - 1]);
-    };
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onClose, onNavigate, hasPrev, hasNext, allFiltered, currentIdx]);
+  }, [onClose]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  const photo = project.photos[photoIndex];
+  const currentIdx = allFiltered.findIndex(p => p.id === project.id);
+  const hasPrev = currentIdx > 0;
+  const hasNext = currentIdx < allFiltered.length - 1;
+  const photos = project.photos;
 
   return (
     <>
+      {/* Backdrop */}
       <div className={styles.backdrop} onClick={onClose} />
-      <aside className={styles.panel} ref={panelRef}>
 
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="1" y1="1" x2="13" y2="13" />
-            <line x1="13" y1="1" x2="1" y2="13" />
-          </svg>
-        </button>
+      {/* Modal wrapper — centers the box */}
+      <div className={styles.modalWrapper} role="dialog" aria-modal="true">
+        <div className={styles.modal}>
 
-        {/* Photo gallery */}
-        <div className={styles.photoArea}>
-          <div className={styles.photoMain} style={{ background: photo.bg }}>
-            <div className={styles.photoOverlay} />
-            <span className={styles.photoLabel}>{photo.label}</span>
+          {/* Close */}
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
 
-            {project.photos.length > 1 && (
-              <>
-                <button className={`${styles.photoArrow} ${styles.photoArrowLeft}`}
-                  onClick={() => setPhotoIndex(i => (i - 1 + project.photos.length) % project.photos.length)}
-                  aria-label="Previous">‹</button>
-                <button className={`${styles.photoArrow} ${styles.photoArrowRight}`}
-                  onClick={() => setPhotoIndex(i => (i + 1) % project.photos.length)}
-                  aria-label="Next">›</button>
-              </>
+          {/* ── LEFT: PHOTOS ── */}
+          <div className={styles.photoArea}>
+            {/* Main photo */}
+            <div
+              className={styles.photoMain}
+              style={{ background: photos[photoIdx].fallbackBg }}
+            >
+              <img
+                key={photos[photoIdx].src}
+                src={photos[photoIdx].src}
+                alt={photos[photoIdx].alt}
+                onError={(e) => { e.currentTarget.style.display = "none"; }}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+              <div className={styles.photoOverlay} />
+
+              {/* Arrows */}
+              {photos.length > 1 && (
+                <>
+                  <button
+                    className={`${styles.photoArrow} ${styles.photoArrowLeft}`}
+                    onClick={() => setPhotoIdx(i => (i - 1 + photos.length) % photos.length)}
+                    aria-label="Previous photo"
+                  >‹</button>
+                  <button
+                    className={`${styles.photoArrow} ${styles.photoArrowRight}`}
+                    onClick={() => setPhotoIdx(i => (i + 1) % photos.length)}
+                    aria-label="Next photo"
+                  >›</button>
+                </>
+              )}
+
+              {/* Counter badge */}
+              {photos.length > 1 && (
+                <span className={styles.photoCounter}>
+                  {photoIdx + 1} / {photos.length}
+                </span>
+              )}
+            </div>
+
+            {/* Thumbnail strip — horizontal scroll */}
+            {photos.length > 1 && (
+              <div className={styles.thumbStrip}>
+                {photos.map((photo, i) => (
+                  <button
+                    key={i}
+                    className={`${styles.thumb} ${i === photoIdx ? styles.thumbActive : ""}`}
+                    style={{ background: photo.fallbackBg }}
+                    onClick={() => setPhotoIdx(i)}
+                    aria-label={photo.alt}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div className={styles.thumbOverlay} />
+                  </button>
+                ))}
+              </div>
             )}
+          </div>
 
-            <div className={styles.photoDots}>
-              {project.photos.map((_, i) => (
-                <button key={i}
-                  className={`${styles.photoDot} ${i === photoIndex ? styles.photoDotActive : ""}`}
-                  onClick={() => setPhotoIndex(i)} aria-label={`Photo ${i + 1}`} />
+          {/* ── RIGHT: DETAILS ── */}
+          <div className={styles.panelBody}>
+            <div className={styles.panelHeader}>
+              <div className={styles.panelMeta}>
+                {project.badge
+                  ? <span className={styles.panelBadge}>{project.badge}</span>
+                  : <span className={styles.panelType}>{project.type}</span>
+                }
+                <span className={styles.metaDot}>·</span>
+                <span>{project.location}</span>
+                <span className={styles.metaDot}>·</span>
+                <span>{project.year}</span>
+              </div>
+              <h2 className={styles.panelName} style={{ color: project.accentColor }}>
+                {project.name}
+              </h2>
+              <p className={styles.panelClient}>{project.client}</p>
+            </div>
+
+            <p className={styles.panelDesc}>{project.description}</p>
+            <div className={styles.panelDivider} style={{ background: project.accentColor }} />
+
+            <ul className={styles.panelDetails}>
+              {project.details.map((d) => (
+                <li key={d.label} className={styles.panelDetailRow}>
+                  <span className={styles.panelDetailLabel}>{d.label}</span>
+                  <span className={styles.panelDetailValue}>{d.value}</span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
 
-          <div className={styles.thumbStrip}>
-            {project.photos.map((p, i) => (
-              <button key={i}
-                className={`${styles.thumb} ${i === photoIndex ? styles.thumbActive : ""}`}
-                style={{ background: p.bg }}
-                onClick={() => setPhotoIndex(i)}>
-                <div className={styles.thumbOverlay} />
-                <span className={styles.thumbLabel}>{p.label}</span>
+            <div className={styles.panelNav}>
+              <button
+                className={`${styles.panelNavBtn} ${!hasPrev ? styles.panelNavDisabled : ""}`}
+                onClick={() => hasPrev && onNavigate(allFiltered[currentIdx - 1])}
+                disabled={!hasPrev}>
+                <span>←</span>
+                <span className={styles.panelNavLabel}>{hasPrev ? allFiltered[currentIdx - 1].name : "—"}</span>
               </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Panel body */}
-        <div className={styles.panelBody}>
-          <div className={styles.panelHeader}>
-            <div className={styles.panelMeta}>
-              {project.badge
-                ? <span className={styles.panelBadge}>{project.badge}</span>
-                : <span className={styles.panelType}>{project.type}</span>
-              }
-              <span className={styles.metaDot}>·</span>
-              <span>{project.location}</span>
-              <span className={styles.metaDot}>·</span>
-              <span>{project.year}</span>
+              <span className={styles.panelNavCount}>{currentIdx + 1} / {allFiltered.length}</span>
+              <button
+                className={`${styles.panelNavBtn} ${styles.panelNavBtnRight} ${!hasNext ? styles.panelNavDisabled : ""}`}
+                onClick={() => hasNext && onNavigate(allFiltered[currentIdx + 1])}
+                disabled={!hasNext}>
+                <span className={styles.panelNavLabel}>{hasNext ? allFiltered[currentIdx + 1].name : "—"}</span>
+                <span>→</span>
+              </button>
             </div>
-            <h2 className={styles.panelName} style={{ color: project.accentColor }}>
-              {project.name}
-            </h2>
-            <p className={styles.panelClient}>{project.client}</p>
           </div>
 
-          <p className={styles.panelDesc}>{project.description}</p>
-          <div className={styles.panelDivider} style={{ background: project.accentColor }} />
-
-          <ul className={styles.panelDetails}>
-            {project.details.map((d) => (
-              <li key={d.label} className={styles.panelDetailRow}>
-                <span className={styles.panelDetailLabel}>{d.label}</span>
-                <span className={styles.panelDetailValue}>{d.value}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className={styles.panelNav}>
-            <button
-              className={`${styles.panelNavBtn} ${!hasPrev ? styles.panelNavDisabled : ""}`}
-              onClick={() => hasPrev && onNavigate(allFiltered[currentIdx - 1])}
-              disabled={!hasPrev}>
-              <span>←</span>
-              <span className={styles.panelNavLabel}>{hasPrev ? allFiltered[currentIdx - 1].name : "—"}</span>
-            </button>
-            <span className={styles.panelNavCount}>{currentIdx + 1} / {allFiltered.length}</span>
-            <button
-              className={`${styles.panelNavBtn} ${styles.panelNavBtnRight} ${!hasNext ? styles.panelNavDisabled : ""}`}
-              onClick={() => hasNext && onNavigate(allFiltered[currentIdx + 1])}
-              disabled={!hasNext}>
-              <span className={styles.panelNavLabel}>{hasNext ? allFiltered[currentIdx + 1].name : "—"}</span>
-              <span>→</span>
-            </button>
-          </div>
         </div>
-      </aside>
+      </div>
     </>
   );
 }
 
 /* ─────────────────────────────────────────
-   PROJECT CARD — editorial grid card
+   PROJECT CARD
 ───────────────────────────────────────── */
 function ProjectCard({ project, onSelect, index }) {
   const ref = useRef(null);
@@ -367,8 +519,8 @@ function ProjectCard({ project, onSelect, index }) {
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onSelect(project)}
     >
-      {/* Background gradient */}
-      <div className={styles.cardBg} style={{ background: project.heroGradient }} />
+      {/* Background — image or gradient */}
+      <CardHero project={project} />
 
       {/* Top metadata row */}
       <div className={styles.cardTop}>
@@ -376,7 +528,7 @@ function ProjectCard({ project, onSelect, index }) {
         <span className={styles.cardYear}>{project.year}</span>
       </div>
 
-      {/* Hover overlay — slides up */}
+      {/* Hover overlay */}
       <div className={styles.cardOverlay}>
         <p className={styles.cardOverlayDesc}>{project.description}</p>
         <span className={styles.cardOverlayCta}>
@@ -422,7 +574,9 @@ export default function ProjectsPage() {
 
       {/* ── HERO ── */}
       <div className={styles.pageHero}>
+        {/* 👇 Drop your studio/workspace photo path here */}
         <div className={styles.pageHeroBg} />
+        <img src="/studio/workspace.png" alt="Our studio" className={styles.pageHeroImg} />
         <div className={styles.pageHeroContent}>
           <p className={styles.heroEyebrow}>Our Work</p>
           <h1 className={styles.heroHeading}>

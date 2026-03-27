@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.4rem 4rem;
+  padding: 0.8rem 4rem;
   transition: background 0.45s ease, backdrop-filter 0.45s ease,
               padding 0.3s ease, border-color 0.45s ease;
   border-bottom: 1px solid transparent;
@@ -19,7 +19,7 @@
   background: rgba(8, 8, 7, 0.75);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  padding: 1rem 4rem;
+  padding: 0.5rem 4rem;
   border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -33,13 +33,17 @@
 }
 
 .logo {
-  height: 52px;
+  height: 110px;
   width: auto;
   object-fit: contain;
   display: block;
-  /* make white logos visible on dark bg; remove if logo already has colour */
   filter: brightness(0) invert(1);
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, height 0.3s ease;
+}
+
+/* Shrink slightly when page is scrolled */
+.header.scrolled .logo {
+  height: 80px;
 }
 
 .logoLink:hover .logo {
@@ -190,10 +194,11 @@
 
 @media (max-width: 900px) {
   .header         { padding: 1.1rem 1.5rem; }
-  .header.scrolled{ padding: 0.9rem 1.5rem; }
+  .header.scrolled{ padding: 0.8rem 1.5rem; }
   .nav            { display: none; }
   .hamburger      { display: flex; }
   .mobileMenu     { display: block; }
 
-  .logo { height: 30px; }
+  .logo           { height: 72px; }
+  .header.scrolled .logo { height: 56px; }
 }
