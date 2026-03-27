@@ -1,0 +1,145 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ================= HERO BACKGROUND ================= */
+
+.hero {
+  position: fixed;
+  inset: 0;
+  background-image: url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20,15,10,0.35),
+    rgba(0,0,0,0.6)
+  );
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8rem 4rem 4rem;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 800px;
+}
+
+/* Cormorant Garamond for the hero title */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.subtitle {
+  margin-top: 1.8rem;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  line-height: 1.7;
+  animation: fadeUp 1.6s ease forwards;
+  opacity: 0;
+}
+
+/* ================= CTA BUTTONS ================= */
+
+.ctaWrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  animation: fadeUp 2s ease forwards;
+  opacity: 0;
+}
+
+.primaryBtn {
+  background: white;
+  color: black;
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.03em;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(255,255,255,0.5);
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+  color: white;
+  transform: translateY(-4px);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .main {
+    padding: 0 2rem 6rem;
+    align-items: flex-end;
+    min-height: 100svh;
+  }
+}
