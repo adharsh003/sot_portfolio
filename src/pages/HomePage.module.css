@@ -88,12 +88,25 @@
   text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
-.subtitle {
-  margin-top: 1.8rem;
+.tagline {
+  margin: 0.8rem 0 0 0;
   font-family: var(--font-sans);
-  font-size: 1.15rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  animation: fadeUp 1.4s ease forwards;
+  opacity: 0;
+}
+
+.subtitle {
+  margin-top: 2rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.7);
   max-width: 560px;
   line-height: 1.7;
   animation: fadeUp 1.6s ease forwards;
@@ -171,5 +184,281 @@
     padding: 0 2rem 6rem;
     align-items: flex-end;
     min-height: 100svh;
+  }
+}
+
+/* ================= FIRM DESCRIPTION SECTION ================= */
+
+.firmDescription {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 10%;
+  background: var(--bg-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.firmDescriptionContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.firmDescriptionText {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.firmDescriptionText:last-child {
+  margin-bottom: 0;
+}
+
+/* ================= REVIEWS SECTION ================= */
+
+.reviewsSection {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 10%;
+  background: var(--bg-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reviewsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reviewsEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.reviewsHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviewCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.reviewCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.reviewAuthorInfo {
+  flex: 1;
+}
+
+.reviewAuthorName {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.reviewTime {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.reviewStars {
+  display: flex;
+  gap: 0.25rem;
+  color: #f59e0b;
+}
+
+.reviewText {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reviewsActions {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.viewAllReviewsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.viewAllReviewsBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= NEWS/MEDIA SECTION ================= */
+
+.newsSection {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 10%;
+  background: var(--bg-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.newsEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.newsHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.newsContent {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.videoFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.newsDetails {
+  padding: 2rem;
+}
+
+.newsTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.newsDesc {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.newsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.newsLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(4px);
+}
+
+
+/* ================= RESPONSIVE - REVIEWS & NEWS ================= */
+
+@media (max-width: 900px) {
+  .reviewsSection,
+  .newsSection {
+    padding: 4rem 2rem;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsContent {
+    grid-template-columns: 1fr;
+  }
+
+  .newsDetails {
+    padding: 1rem 0;
   }
 }

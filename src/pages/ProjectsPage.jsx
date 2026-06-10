@@ -30,6 +30,7 @@ const ALL_PROJECTS = [
       { src: "/projects/kuttanad/Kuttanad4.jpeg", alt: "Verandah",          fallbackBg: "linear-gradient(145deg,#0e1c0e,#1a2e12,#0a1408)" },
       { src: "/projects/kuttanad/Kuttanad5.jpeg", alt: "River Facing",      fallbackBg: "linear-gradient(130deg,#0c1a0c,#182a10,#081208)" },
       { src: "/projects/kuttanad/Kuttanad6.jpeg", alt: "Interior Living",   fallbackBg: "linear-gradient(155deg,#101e10,#1c3014,#0c1409)" },
+      { src: "/projects/kuttanad/Kuttanad7.jpeg", alt: "Waterfront View",   fallbackBg: "linear-gradient(140deg,#0a1810,#162a18,#08140c)" },
     ],
     heroImage: "/projects/kuttanad/Kuttanad1.jpeg",
     heroGradient: "linear-gradient(160deg,#0e1c0e,#1e3a16,#0a1a08)",
@@ -114,8 +115,8 @@ const ALL_PROJECTS = [
     accentColor: "#90b050",
   },
   {
-    id: "annara",
-    name: "Annara",
+    id: "malappuram",
+    name: "Malappuram",
     client: "Mr. Saifudheen",
     location: "Tirur",
     type: "residential",
@@ -130,14 +131,37 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Courtyard Tropical" },
     ],
     photos: [
-      { src: "/projects/annara/annara1.png", alt: "Courtyard",     fallbackBg: "linear-gradient(135deg,#101520,#181f2a,#0c1018)" },
-      { src: "/projects/annara/annara2.png", alt: "Staircase",     fallbackBg: "linear-gradient(150deg,#0c1018,#141a24,#080c14)" },
-      { src: "/projects/annara/annara3.png", alt: "Bedroom Wing",  fallbackBg: "linear-gradient(120deg,#080e16,#10161e,#060a10)" },
-      { src: "/projects/annara/annara4.png", alt: "Sky Opening",   fallbackBg: "linear-gradient(145deg,#0a1018,#121820,#06080e)" },
+      { src: "/projects/malappuram/malappuram1.png", alt: "Courtyard",     fallbackBg: "linear-gradient(135deg,#101520,#181f2a,#0c1018)" },
+      { src: "/projects/malappuram/malappuram2.png", alt: "Staircase",     fallbackBg: "linear-gradient(150deg,#0c1018,#141a24,#080c14)" },
+      { src: "/projects/malappuram/malappuram3.png", alt: "Bedroom Wing",  fallbackBg: "linear-gradient(120deg,#080e16,#10161e,#060a10)" },
+      { src: "/projects/malappuram/malappuram4.png", alt: "Sky Opening",   fallbackBg: "linear-gradient(145deg,#0a1018,#121820,#06080e)" },
     ],
-    heroImage: "/projects/annara/annara1.png",
+    heroImage: "/projects/malappuram/malappuram1.png",
     heroGradient: "linear-gradient(160deg,#0a1020,#14202e,#080c18)",
     accentColor: "#6090b0",
+  },
+  {
+    id: "dindigul",
+    name: "Dindigul",
+    client: "Private Residence",
+    location: "Dindigul, Tamil Nadu",
+    type: "residential",
+    year: "2023",
+    description:
+      "A contemporary residence that harmonizes modern design principles with regional architectural sensibilities. The project emphasizes spatial efficiency and natural ventilation while maintaining a strong connection to the local context.",
+    details: [
+      { label: "Type",     value: "Residential" },
+      { label: "Location", value: "Dindigul, Tamil Nadu" },
+      { label: "Style",    value: "Contemporary" },
+    ],
+    photos: [
+      { src: "/projects/Dindigul/dindigul1.jpeg", alt: "Exterior View", fallbackBg: "linear-gradient(135deg,#1a1510,#2d2418,#1a1208)" },
+      { src: "/projects/Dindigul/dindigul2.jpeg", alt: "Front Facade", fallbackBg: "linear-gradient(150deg,#141110,#221a14,#100d08)" },
+      { src: "/projects/Dindigul/dindigul3.jpeg", alt: "Side Elevation", fallbackBg: "linear-gradient(120deg,#120d0a,#1e1510,#0c0908)" },
+    ],
+    heroImage: "/projects/Dindigul/dindigul1.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#b88050",
   },
   {
     id: "steam-mugs",
@@ -301,11 +325,223 @@ const ALL_PROJECTS = [
   },
 ];
 
+const INTERIOR_PROJECTS = [
+  {
+    id: "interior-1",
+    name: "Interior 1",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior1.jpeg", alt: "Interior 1", fallbackBg: "linear-gradient(135deg,#1a1510,#2d2418,#1a1208)" }],
+    heroImage: "/Interior/interior1.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#c09060",
+  },
+  {
+    id: "interior-2",
+    name: "Interior 2",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior2.jpeg", alt: "Interior 2", fallbackBg: "linear-gradient(150deg,#141110,#221a14,#100d08)" }],
+    heroImage: "/Interior/interior2.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#b89060",
+  },
+  {
+    id: "interior-3",
+    name: "Interior 3",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior3.jpeg", alt: "Interior 3", fallbackBg: "linear-gradient(120deg,#120d0a,#1e1510,#0c0908)" }],
+    heroImage: "/Interior/interior3.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#a88050",
+  },
+  {
+    id: "interior-4",
+    name: "Interior 4",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior4.jpeg", alt: "Interior 4", fallbackBg: "linear-gradient(145deg,#0e0c0a,#1a1410,#0a0806)" }],
+    heroImage: "/Interior/interior4.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#c09060",
+  },
+  {
+    id: "interior-5",
+    name: "Interior 5",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior5.jpeg", alt: "Interior 5", fallbackBg: "linear-gradient(130deg,#101010,#1c1818,#0c0c0c)" }],
+    heroImage: "/Interior/interior5.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#b89060",
+  },
+  {
+    id: "interior-6",
+    name: "Interior 6",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior6.jpeg", alt: "Interior 6", fallbackBg: "linear-gradient(155deg,#0a0e10,#141c20,#080c10)" }],
+    heroImage: "/Interior/interior6.jpeg",
+    heroGradient: "linear-gradient(160deg,#0a1020,#14202e,#080c18)",
+    accentColor: "#7090b0",
+  },
+  {
+    id: "interior-7",
+    name: "Interior 7",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior7.jpeg", alt: "Interior 7", fallbackBg: "linear-gradient(135deg,#1a1510,#2d2418,#1a1208)" }],
+    heroImage: "/Interior/interior7.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#c09060",
+  },
+  {
+    id: "interior-8",
+    name: "Interior 8",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior8.jpeg", alt: "Interior 8", fallbackBg: "linear-gradient(150deg,#141110,#221a14,#100d08)" }],
+    heroImage: "/Interior/interior8.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#b89060",
+  },
+  {
+    id: "interior-9",
+    name: "Interior 9",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior9.jpeg", alt: "Interior 9", fallbackBg: "linear-gradient(120deg,#120d0a,#1e1510,#0c0908)" }],
+    heroImage: "/Interior/interior9.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#a88050",
+  },
+  {
+    id: "interior-10",
+    name: "Interior 10",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior10.jpeg", alt: "Interior 10", fallbackBg: "linear-gradient(145deg,#0e0c0a,#1a1410,#0a0806)" }],
+    heroImage: "/Interior/interior10.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#c09060",
+  },
+  {
+    id: "interior-11",
+    name: "Interior 11",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior11.jpeg", alt: "Interior 11", fallbackBg: "linear-gradient(130deg,#101010,#1c1818,#0c0c0c)" }],
+    heroImage: "/Interior/interior11.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#b89060",
+  },
+  {
+    id: "interior-12",
+    name: "Interior 12",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior12.jpeg", alt: "Interior 12", fallbackBg: "linear-gradient(155deg,#0a0e10,#141c20,#080c10)" }],
+    heroImage: "/Interior/interior12.jpeg",
+    heroGradient: "linear-gradient(160deg,#0a1020,#14202e,#080c18)",
+    accentColor: "#7090b0",
+  },
+  {
+    id: "interior-13",
+    name: "Interior 13",
+    client: "",
+    location: "Kerala",
+    type: "interior",
+    year: "2023",
+    description: "",
+    details: [
+      { label: "Type", value: "Interior Design" },
+    ],
+    photos: [{ src: "/Interior/interior13.jpeg", alt: "Interior 13", fallbackBg: "linear-gradient(135deg,#1a1510,#2d2418,#1a1208)" }],
+    heroImage: "/Interior/interior13.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1208,#2a1e10,#140d04)",
+    accentColor: "#c09060",
+  },
+];
+
 const FILTERS = [
-  { key: "all",         label: "All Projects",  count: ALL_PROJECTS.length },
+  { key: "all",         label: "Featured Projects",  count: ALL_PROJECTS.length },
   { key: "residential", label: "Residential",   count: ALL_PROJECTS.filter(p => p.type === "residential").length },
   { key: "commercial",  label: "Commercial",    count: ALL_PROJECTS.filter(p => p.type === "commercial").length },
   { key: "mixed",       label: "Mixed Use",     count: ALL_PROJECTS.filter(p => p.type === "mixed").length },
+  { key: "interior",    label: "Interiors",     count: INTERIOR_PROJECTS.length },
 ];
 
 /* ─────────────────────────────────────────
@@ -471,20 +707,6 @@ function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
             onError={(e) => { e.currentTarget.style.display = "none"; }}
             className={styles.viewerImage}
           />
-          
-          {/* Semi-transparent description overlay - moved to top */}
-          <div className={styles.descriptionOverlay}>
-            <div className={styles.overlayContent}>
-              <div className={styles.overlayMeta}>
-                <span className={styles.overlayType}>{project.badge || project.type}</span>
-                <span className={styles.overlayDot}>·</span>
-                <span>{project.year}</span>
-              </div>
-              <h2 className={styles.overlayTitle}>{project.name}</h2>
-              <p className={styles.overlayLocation}>{project.location}</p>
-              <p className={styles.overlayDesc}>{project.description}</p>
-            </div>
-          </div>
 
           {/* Edge hover zones for photo navigation with gradient and arrow */}
           {photos.length > 1 && (
@@ -713,6 +935,8 @@ export default function ProjectsPage() {
 
   const filtered = activeFilter === "all"
     ? ALL_PROJECTS
+    : activeFilter === "interior"
+    ? INTERIOR_PROJECTS
     : ALL_PROJECTS.filter(p => p.type === activeFilter);
 
   const handleFilter = (key) => {

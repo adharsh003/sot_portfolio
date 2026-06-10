@@ -48,6 +48,26 @@ export default function Footer() {
             </div>
 
             <div className={styles.linkColumn}>
+              <h4 className={styles.columnTitle}>Social</h4>
+              <a
+                href="https://www.facebook.com/SoTdesigns/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerLink}
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/sot_designs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerLink}
+              >
+                Instagram
+              </a>
+            </div>
+
+            <div className={styles.linkColumn}>
               <h4 className={styles.columnTitle}>Location</h4>
               <p className={styles.footerText}>
                 Tirur, Kerala<br />
