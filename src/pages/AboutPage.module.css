@@ -5,7 +5,7 @@
   color: var(--text-light);
   min-height: 100vh;
   padding-top: 6rem;
-  padding-bottom: 200px;
+  padding-bottom: 0;
 }
 
 
@@ -125,5 +125,248 @@
 
   .right img {
     height: 300px;
+  }
+}
+
+/* ================= REVIEWS SECTION ================= */
+
+.reviewsSection {
+  padding: 6rem 10%;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.02) 100%);
+}
+
+.reviewsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reviewsEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.reviewsHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviewCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.reviewCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-hi);
+  transform: translateY(-4px);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.reviewAuthorInfo {
+  flex: 1;
+}
+
+.reviewAuthorName {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.reviewTime {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.reviewStars {
+  display: flex;
+  gap: 0.25rem;
+  color: #f59e0b;
+}
+
+.reviewText {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.reviewsActions {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.viewAllReviewsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.viewAllReviewsBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= NEWS/MEDIA SECTION ================= */
+
+.newsSection {
+  padding: 6rem 10%;
+  border-top: 1px solid var(--border);
+}
+
+.newsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.newsEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.newsHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.newsContent {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+}
+
+.videoFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.newsDetails {
+  padding: 2rem;
+}
+
+.newsTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.newsDesc {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.newsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.newsLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+  transform: translateX(4px);
+}
+
+
+/* ================= RESPONSIVE - REVIEWS & NEWS ================= */
+
+@media (max-width: 900px) {
+  .reviewsSection,
+  .newsSection {
+    padding: 4rem 2rem;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsContent {
+    grid-template-columns: 1fr;
+  }
+
+  .newsDetails {
+    padding: 1rem 0;
   }
 }

@@ -736,19 +736,6 @@ export default function ProjectsPage() {
             <em>our creations</em>
           </h1>
         </div>
-        <div className={styles.heroStats}>
-          {FILTERS.slice(1).map((f, i, arr) => (
-            <div key={f.key} className={styles.heroStatGroup}>
-              <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>
-                  <CounterAnimation end={f.count} duration={2000} padStart={2} />
-                </span>
-                <span className={styles.heroStatLabel}>{f.label}</span>
-              </div>
-              {i < arr.length - 1 && <div className={styles.heroStatDivider} />}
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* ── FILTER BAR ── */}
@@ -761,7 +748,6 @@ export default function ProjectsPage() {
               onClick={() => handleFilter(f.key)}
             >
               {f.label}
-              <span className={styles.pillCount}>{f.count}</span>
             </button>
           ))}
         </div>

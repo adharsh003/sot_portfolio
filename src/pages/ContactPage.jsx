@@ -65,13 +65,13 @@ export default function ContactPage() {
             </p>
             <div className={styles.heroMeta}>
               <div className={styles.heroMetaItem}>
-                <span className={styles.heroMetaNum}>08+</span>
-                <span className={styles.heroMetaLabel}>Projects completed</span>
+                <span className={styles.heroMetaNum}>20+</span>
+                <span className={styles.heroMetaLabel}>Projects</span>
               </div>
               <div className={styles.heroMetaDivider} />
               <div className={styles.heroMetaItem}>
-                <span className={styles.heroMetaNum}>3</span>
-                <span className={styles.heroMetaLabel}>Typologies</span>
+                <span className={styles.heroMetaNum}>7+</span>
+                <span className={styles.heroMetaLabel}>Years Experience</span>
               </div>
               <div className={styles.heroMetaDivider} />
               <div className={styles.heroMetaItem}>
@@ -174,6 +174,60 @@ export default function ContactPage() {
               <span className={copied === "phone" ? styles.copiedText : ""}>
                 {copied === "phone" ? "✓ Copied" : "Copy"}
               </span>
+            </div>
+            <div className={styles.cardLine} />
+          </div>
+
+          {/* Instagram */}
+          <div
+            className={`${styles.card} ${hoveredCard === "instagram" ? styles.cardHovered : ""}`}
+            onClick={() => window.open("https://www.instagram.com/sot_designs", "_blank")}
+            onMouseEnter={() => setHoveredCard("instagram")}
+            onMouseLeave={() => setHoveredCard(null)}
+            role="button"
+            tabIndex={0}
+          >
+            <div className={styles.cardNumber}>04</div>
+            <div className={styles.cardContent}>
+              <div className={styles.cardIconWrap}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </div>
+              <p className={styles.cardLabel}>Instagram</p>
+              <p className={styles.cardValue}>@sot_designs</p>
+            </div>
+            <div className={styles.cardAction}>
+              <span>↗ Follow</span>
+            </div>
+            <div className={styles.cardLine} />
+          </div>
+
+          {/* LinkedIn */}
+          <div
+            className={`${styles.card} ${hoveredCard === "linkedin" ? styles.cardHovered : ""}`}
+            onClick={() => window.open("https://www.linkedin.com/in/sketch-on-thoughts-sot-designs-7892941b0?originalSubdomain=in", "_blank")}
+            onMouseEnter={() => setHoveredCard("linkedin")}
+            onMouseLeave={() => setHoveredCard(null)}
+            role="button"
+            tabIndex={0}
+          >
+            <div className={styles.cardNumber}>05</div>
+            <div className={styles.cardContent}>
+              <div className={styles.cardIconWrap}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <p className={styles.cardLabel}>LinkedIn</p>
+              <p className={styles.cardValue}>Sketch on Thoughts</p>
+            </div>
+            <div className={styles.cardAction}>
+              <span>↗ Connect</span>
             </div>
             <div className={styles.cardLine} />
           </div>
