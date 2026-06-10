@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import styles from "./AboutPage.module.css";
 import { useEffect } from "react";
 
@@ -97,6 +98,7 @@ export default function AboutPage() {
 
 </section>
 
+      <Footer />
     </div>
   );
 }

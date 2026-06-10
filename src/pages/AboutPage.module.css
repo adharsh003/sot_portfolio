@@ -1,8 +1,8 @@
 /* ================= PAGE ================= */
 
 .page {
-  background: #0e0e0e;
-  color: #eaeaea;
+  background: var(--bg-dark);
+  color: var(--text-light);
   min-height: 100vh;
   padding-top: 6rem;
   padding-bottom: 200px;
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 5rem;
   padding: 6rem 10%;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border);
 
   /* scroll reveal */
   opacity: 0;
@@ -42,7 +42,7 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 400;
   margin-bottom: 1.8rem;
-  color: #ffffff;
+  color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
@@ -51,7 +51,7 @@
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.9;
-  color: #b5b5b5;
+  color: var(--text-muted);
   max-width: 500px;
 }
 
@@ -60,7 +60,7 @@
 
 .leftWrapper {
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--border-hi);
   border-radius: 60px 0 60px 60px;
   padding: 4rem;
   max-width: 600px;

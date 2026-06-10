@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <NavLink to="/" className={styles.logoLink}>
-        <img src=".\public\logo.PNG" alt="Sketch on Thoughts" className={styles.logo} />
+        <img src="/logo.PNG" alt="Sketch on Thoughts" className={styles.logo} />
       </NavLink>
 
       <nav className={styles.nav}>

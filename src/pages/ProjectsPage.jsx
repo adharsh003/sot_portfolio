@@ -1,26 +1,11 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import CounterAnimation from "../components/CounterAnimation";
 import styles from "./ProjectsPage.module.css";
 import { useEffect, useRef, useState } from "react";
 
 /* ─────────────────────────────────────────
-   DATA
-   
-   HOW TO ADD PHOTOS:
-   Each project has a `photos` array. Each photo object has:
-     - src: path to the image (put images in /public/projects/)
-     - label: caption shown on the photo
-   
-   NAMING CONVENTION for your /public/projects/ folder:
-     kuttanad-1.jpg, kuttanad-2.jpg, kuttanad-3.jpg
-     kakkanad-1.jpg, kakkanad-2.jpg, kakkanad-3.jpg
-     calicut-1.jpg, calicut-2.jpg, calicut-3.jpg
-     perinthalmanna-1.jpg, perinthalmanna-2.jpg, perinthalmanna-3.jpg
-     annara-1.jpg, annara-2.jpg, annara-3.jpg
-     steam-mugs-1.jpg, steam-mugs-2.jpg, steam-mugs-3.jpg
-     thrissur-1.jpg, thrissur-2.jpg, thrissur-3.jpg
-     wayanad-1.jpg, wayanad-2.jpg, wayanad-3.jpg
-   
-   The `fallbackBg` is shown if the image hasn't been added yet.
+   DATA - ALL PROJECTS WITH CORRECT IMAGE PATHS
 ───────────────────────────────────────── */
 const ALL_PROJECTS = [
   {
@@ -39,40 +24,43 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Tropical Vernacular" },
     ],
     photos: [
-      { src: "/projects/kuttanad/kuttanad1.png", alt: "Exterior — Front",  fallbackBg: "linear-gradient(135deg,#1a2a1a,#2d3d20,#1a2510)" },
-      { src: "/projects/kuttanad/kuttanad2.png", alt: "Courtyard",         fallbackBg: "linear-gradient(160deg,#12201a,#223a28,#0e1a10)" },
-      { src: "/projects/kuttanad/kuttanad3.png", alt: "Garden View",       fallbackBg: "linear-gradient(120deg,#0e1c0e,#1e3016,#0a120a)" },
-      { src: "/projects/kuttanad/kuttanad4.png", alt: "Verandah",          fallbackBg: "linear-gradient(145deg,#0e1c0e,#1a2e12,#0a1408)" },
-      { src: "/projects/kuttanad/kuttanad5.png", alt: "River Facing",      fallbackBg: "linear-gradient(130deg,#0c1a0c,#182a10,#081208)" },
-      { src: "/projects/kuttanad/kuttanad6.png", alt: "Interior Living",   fallbackBg: "linear-gradient(155deg,#101e10,#1c3014,#0c1409)" },
+      { src: "/projects/kuttanad/Kuttanad1.jpeg", alt: "Exterior — Front",  fallbackBg: "linear-gradient(135deg,#1a2a1a,#2d3d20,#1a2510)" },
+      { src: "/projects/kuttanad/Kuttanad2.jpeg", alt: "Courtyard",         fallbackBg: "linear-gradient(160deg,#12201a,#223a28,#0e1a10)" },
+      { src: "/projects/kuttanad/Kuttanad3.jpeg", alt: "Garden View",       fallbackBg: "linear-gradient(120deg,#0e1c0e,#1e3016,#0a120a)" },
+      { src: "/projects/kuttanad/Kuttanad4.jpeg", alt: "Verandah",          fallbackBg: "linear-gradient(145deg,#0e1c0e,#1a2e12,#0a1408)" },
+      { src: "/projects/kuttanad/Kuttanad5.jpeg", alt: "River Facing",      fallbackBg: "linear-gradient(130deg,#0c1a0c,#182a10,#081208)" },
+      { src: "/projects/kuttanad/Kuttanad6.jpeg", alt: "Interior Living",   fallbackBg: "linear-gradient(155deg,#101e10,#1c3014,#0c1409)" },
     ],
-    heroImage: "/projects/kuttanad/kuttanad1.png",
+    heroImage: "/projects/kuttanad/Kuttanad1.jpeg",
     heroGradient: "linear-gradient(160deg,#0e1c0e,#1e3a16,#0a1a08)",
     accentColor: "#7aaa50",
   },
   {
-    id: "kakkanad",
-    name: "Kakkanad",
+    id: "kakkanad-residence",
+    name: "Kakkanad Residence",
     client: "Mr. Mushir Mohammed",
-    location: "Ernakulam",
+    location: "Kakkanad, Ernakulam",
     type: "residential",
-    year: "2023",
+    year: "2024",
     description:
-      "A contemporary three-storey residence designed to balance openness and privacy within a compact urban setting. The 8,000 sq. ft. home features fluid living spaces, double-height volumes, and shaded terraces that respond to the tropical climate.",
+      "A modern family home that prioritizes comfort and functionality. The design incorporates spacious interiors, natural materials, and strategic placement of windows to maximize natural light throughout the day.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Kakkanad, Ernakulam" },
       { label: "Client",   value: "Mr. Mushir Mohammed" },
-      { label: "Area",     value: "8,000 sq. ft." },
-      { label: "Style",    value: "Contemporary Tropical" },
+      { label: "Style",    value: "Modern Tropical" },
     ],
     photos: [
-      { src: "/projects/kakkanad/kakkanad1.png", alt: "Facade — Night",      fallbackBg: "linear-gradient(135deg,#0d1520,#1a2535,#0a1018)" },
-      { src: "/projects/kakkanad/kakkanad2.png", alt: "Living Spaces",        fallbackBg: "linear-gradient(150deg,#0a1220,#16222e,#080e18)" },
+      { src: "/projects/kakkanad residence/Kakkanad1.jpeg", alt: "Main Facade", fallbackBg: "linear-gradient(135deg,#0d1520,#1a2535,#0a1018)" },
+      { src: "/projects/kakkanad residence/Kakkanad2.jpeg", alt: "Entrance", fallbackBg: "linear-gradient(150deg,#0a1220,#16222e,#080e18)" },
+      { src: "/projects/kakkanad residence/Kakkanad3.jpeg", alt: "Living Area", fallbackBg: "linear-gradient(120deg,#080e16,#10161e,#060a10)" },
+      { src: "/projects/kakkanad residence/Kakkanad4.jpeg", alt: "Interior", fallbackBg: "linear-gradient(145deg,#0a1018,#121820,#06080e)" },
+      { src: "/projects/kakkanad residence/Kakkanad5.jpeg", alt: "Detail View", fallbackBg: "linear-gradient(130deg,#0c1218,#141c24,#080c12)" },
+      { src: "/projects/kakkanad residence/Kakkanad6.jpeg", alt: "Exterior", fallbackBg: "linear-gradient(155deg,#081014,#0e1820,#060c10)" },
     ],
-    heroImage: "/projects/kakkanad/kakkanad1.png",
+    heroImage: "/projects/kakkanad residence/Kakkanad1.jpeg",
     heroGradient: "linear-gradient(160deg,#08101e,#152030,#080c18)",
-    accentColor: "#5080b0",
+    accentColor: "#6090c0",
   },
   {
     id: "calicut",
@@ -116,12 +104,12 @@ const ALL_PROJECTS = [
       { label: "Style",    value: "Climate-Responsive" },
     ],
     photos: [
-      { src: "/projects/perinthalmanna/perinthalmanna1.png", alt: "Exterior",        fallbackBg: "linear-gradient(135deg,#1a2010,#283018,#151a0c)" },
-      { src: "/projects/perinthalmanna/perinthalmanna2.png", alt: "Roof Detail",     fallbackBg: "linear-gradient(150deg,#141a0e,#202814,#0e120a)" },
-      { src: "/projects/perinthalmanna/perinthalmanna3.png", alt: "Landscape",       fallbackBg: "linear-gradient(120deg,#101608,#1c2210,#0c1006)" },
+      { src: "/projects/perinthalmanna/perinthalmanna1.jpeg", alt: "Exterior",        fallbackBg: "linear-gradient(135deg,#1a2010,#283018,#151a0c)" },
+      { src: "/projects/perinthalmanna/perinthalmanna2.jpeg", alt: "Roof Detail",     fallbackBg: "linear-gradient(150deg,#141a0e,#202814,#0e120a)" },
+      { src: "/projects/perinthalmanna/perinthalmanna3.jpeg", alt: "Landscape",       fallbackBg: "linear-gradient(120deg,#101608,#1c2210,#0c1006)" },
       { src: "/projects/perinthalmanna/perinthalmanna4.png", alt: "Shaded Openings", fallbackBg: "linear-gradient(145deg,#121808,#1e2612,#0e1408)" },
     ],
-    heroImage: "/projects/perinthalmanna/perinthalmanna1.png",
+    heroImage: "/projects/perinthalmanna/perinthalmanna1.jpeg",
     heroGradient: "linear-gradient(160deg,#101808,#202e10,#0c1406)",
     accentColor: "#90b050",
   },
@@ -239,6 +227,78 @@ const ALL_PROJECTS = [
     heroGradient: "linear-gradient(160deg,#061008,#0c1c10,#040a06)",
     accentColor: "#50a068",
   },
+  {
+    id: "chalakkudi",
+    name: "Chalakkudi",
+    client: "Private Residence",
+    location: "Chalakkudi, Thrissur",
+    type: "residential",
+    year: "2023",
+    description:
+      "A contemporary residence designed to embrace natural light and ventilation. The architecture features clean lines, open spaces, and a harmonious blend of modern materials with traditional Kerala elements.",
+    details: [
+      { label: "Type",     value: "Residential" },
+      { label: "Location", value: "Chalakkudi, Thrissur" },
+      { label: "Style",    value: "Contemporary" },
+    ],
+    photos: [
+      { src: "/projects/Chalakkudi/Chalakkudi1.jpeg", alt: "Exterior View", fallbackBg: "linear-gradient(135deg,#1a1810,#2d2418,#1a1408)" },
+      { src: "/projects/Chalakkudi/Chalakkudi2.jpeg", alt: "Front Facade", fallbackBg: "linear-gradient(150deg,#141210,#221a14,#100e08)" },
+      { src: "/projects/Chalakkudi/Chalakkudi3.jpeg", alt: "Side View", fallbackBg: "linear-gradient(120deg,#120e0a,#1e1610,#0c0a08)" },
+      { src: "/projects/Chalakkudi/Chalakkudi4.jpeg", alt: "Detail", fallbackBg: "linear-gradient(145deg,#0e0c0a,#1a1410,#0a0806)" },
+    ],
+    heroImage: "/projects/Chalakkudi/Chalakkudi1.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1408,#2a2010,#140e04)",
+    accentColor: "#b89060",
+  },
+  {
+    id: "nadapuram",
+    name: "Nadapuram",
+    client: "Private Residence",
+    location: "Nadapuram, Kozhikode",
+    type: "residential",
+    year: "2023",
+    description:
+      "A residence that celebrates simplicity and functionality. The design focuses on creating comfortable living spaces that respond to the local climate while maintaining a contemporary aesthetic.",
+    details: [
+      { label: "Type",     value: "Residential" },
+      { label: "Location", value: "Nadapuram, Kozhikode" },
+      { label: "Style",    value: "Contemporary" },
+    ],
+    photos: [
+      { src: "/projects/nadapuram/nadapuram1.jpeg", alt: "Front View", fallbackBg: "linear-gradient(135deg,#1a1810,#2d2418,#1a1408)" },
+      { src: "/projects/nadapuram/nadapuram2.jpeg", alt: "Facade", fallbackBg: "linear-gradient(150deg,#141210,#221a14,#100e08)" },
+      { src: "/projects/nadapuram/nadapuram3.jpeg", alt: "Side Elevation", fallbackBg: "linear-gradient(120deg,#120e0a,#1e1610,#0c0a08)" },
+      { src: "/projects/nadapuram/nadapuram4.jpeg", alt: "Detail", fallbackBg: "linear-gradient(145deg,#0e0c0a,#1a1410,#0a0806)" },
+    ],
+    heroImage: "/projects/nadapuram/nadapuram1.jpeg",
+    heroGradient: "linear-gradient(160deg,#1a1408,#2a2010,#140e04)",
+    accentColor: "#a88050",
+  },
+  {
+    id: "thekkumuri",
+    name: "Thekkumuri",
+    client: "Private Residence",
+    location: "Thekkumuri",
+    type: "residential",
+    year: "2023",
+    description:
+      "A thoughtfully designed home that balances privacy and openness. The architecture features well-proportioned spaces, natural ventilation, and a material palette that ages gracefully with time.",
+    details: [
+      { label: "Type",     value: "Residential" },
+      { label: "Location", value: "Thekkumuri, Kerala" },
+      { label: "Style",    value: "Contemporary Vernacular" },
+    ],
+    photos: [
+      { src: "/projects/Thekkumuri/thekkumuri1.jpeg", alt: "Exterior", fallbackBg: "linear-gradient(135deg,#101520,#181f2a,#0c1018)" },
+      { src: "/projects/Thekkumuri/thekkumuri2.jpeg", alt: "Front View", fallbackBg: "linear-gradient(150deg,#0c1018,#141a24,#080c14)" },
+      { src: "/projects/Thekkumuri/thekkumuri3.jpeg", alt: "Side View", fallbackBg: "linear-gradient(120deg,#080e16,#10161e,#060a10)" },
+      { src: "/projects/Thekkumuri/thekkumuri4.jpeg", alt: "Detail", fallbackBg: "linear-gradient(145deg,#0a1018,#121820,#06080e)" },
+    ],
+    heroImage: "/projects/Thekkumuri/thekkumuri1.jpeg",
+    heroGradient: "linear-gradient(160deg,#0a1020,#14202e,#080c18)",
+    accentColor: "#7090b0",
+  },
 ];
 
 const FILTERS = [
@@ -324,18 +384,40 @@ function CardHero({ project }) {
 }
 
 /* ─────────────────────────────────────────
-   DETAIL PANEL
+   DETAIL PANEL - NEW FULL-SCREEN DESIGN
 ───────────────────────────────────────── */
 function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
   const [photoIdx, setPhotoIdx] = useState(0);
-
-  useEffect(() => { setPhotoIdx(0); }, [project.id]);
+  const [showDetails, setShowDetails] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    setPhotoIdx(0);
+    setShowDetails(false);
+    setShowHint(true);
+    
+    // Hide hint after 2 seconds
+    const timer = setTimeout(() => {
+      setShowHint(false);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, [project.id]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        if (lightboxOpen) {
+          setLightboxOpen(false);
+        } else {
+          onClose();
+        }
+      }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  }, [onClose, lightboxOpen]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -347,97 +429,123 @@ function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
   const hasNext = currentIdx < allFiltered.length - 1;
   const photos = project.photos;
 
+  const nextPhoto = () => setPhotoIdx(i => (i + 1) % photos.length);
+  const prevPhoto = () => setPhotoIdx(i => (i - 1 + photos.length) % photos.length);
+
   return (
     <>
       {/* Backdrop */}
-      <div className={styles.backdrop} onClick={onClose} />
+      <div
+        className={styles.backdrop}
+        onClick={() => {
+          if (showDetails) {
+            setShowDetails(false);
+          } else {
+            onClose();
+          }
+        }}
+      />
 
-      {/* Modal wrapper — centers the box */}
-      <div className={styles.modalWrapper} role="dialog" aria-modal="true">
-        <div className={styles.modal}>
+      {/* Full-screen modal */}
+      <div className={styles.fullscreenModal} role="dialog" aria-modal="true">
+        
+        {/* Close button */}
+        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
 
-          {/* Close */}
-          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
-
-          {/* ── LEFT: PHOTOS ── */}
-          <div className={styles.photoArea}>
-            {/* Main photo */}
-            <div
-              className={styles.photoMain}
-              style={{ background: photos[photoIdx].fallbackBg }}
-            >
-              <img
-                key={photos[photoIdx].src}
-                src={photos[photoIdx].src}
-                alt={photos[photoIdx].alt}
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-              <div className={styles.photoOverlay} />
-
-              {/* Arrows */}
-              {photos.length > 1 && (
-                <>
-                  <button
-                    className={`${styles.photoArrow} ${styles.photoArrowLeft}`}
-                    onClick={() => setPhotoIdx(i => (i - 1 + photos.length) % photos.length)}
-                    aria-label="Previous photo"
-                  >‹</button>
-                  <button
-                    className={`${styles.photoArrow} ${styles.photoArrowRight}`}
-                    onClick={() => setPhotoIdx(i => (i + 1) % photos.length)}
-                    aria-label="Next photo"
-                  >›</button>
-                </>
-              )}
-
-              {/* Counter badge */}
-              {photos.length > 1 && (
-                <span className={styles.photoCounter}>
-                  {photoIdx + 1} / {photos.length}
-                </span>
-              )}
-            </div>
-
-            {/* Thumbnail strip — horizontal scroll */}
-            {photos.length > 1 && (
-              <div className={styles.thumbStrip}>
-                {photos.map((photo, i) => (
-                  <button
-                    key={i}
-                    className={`${styles.thumb} ${i === photoIdx ? styles.thumbActive : ""}`}
-                    style={{ background: photo.fallbackBg }}
-                    onClick={() => setPhotoIdx(i)}
-                    aria-label={photo.alt}
-                  >
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      onError={(e) => { e.currentTarget.style.display = "none"; }}
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                    <div className={styles.thumbOverlay} />
-                  </button>
-                ))}
+        {/* Main photo viewer with description overlay */}
+        <div
+          className={styles.photoViewer}
+          style={{ background: photos[photoIdx].fallbackBg }}
+          onClick={() => {
+            if (showDetails) {
+              setShowDetails(false);
+            } else {
+              setLightboxOpen(true);
+            }
+          }}
+        >
+          <img
+            key={photos[photoIdx].src}
+            src={photos[photoIdx].src}
+            alt={photos[photoIdx].alt}
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
+            className={styles.viewerImage}
+          />
+          
+          {/* Semi-transparent description overlay - moved to top */}
+          <div className={styles.descriptionOverlay}>
+            <div className={styles.overlayContent}>
+              <div className={styles.overlayMeta}>
+                <span className={styles.overlayType}>{project.badge || project.type}</span>
+                <span className={styles.overlayDot}>·</span>
+                <span>{project.year}</span>
               </div>
-            )}
+              <h2 className={styles.overlayTitle}>{project.name}</h2>
+              <p className={styles.overlayLocation}>{project.location}</p>
+              <p className={styles.overlayDesc}>{project.description}</p>
+            </div>
           </div>
 
-          {/* ── RIGHT: DETAILS ── */}
-          <div className={styles.panelBody}>
+          {/* Edge hover zones for photo navigation with gradient and arrow */}
+          {photos.length > 1 && (
+            <>
+              <div
+                className={`${styles.photoEdgeZone} ${styles.photoEdgeLeft}`}
+                onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+                aria-label="Previous photo"
+              >
+                <div className={styles.edgeGradient}>
+                  <svg className={styles.edgeArrow} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div
+                className={`${styles.photoEdgeZone} ${styles.photoEdgeRight}`}
+                onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+                aria-label="Next photo"
+              >
+                <div className={styles.edgeGradient}>
+                  <svg className={styles.edgeArrow} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Photo counter */}
+          {photos.length > 1 && (
+            <span className={styles.photoCounter}>
+              {photoIdx + 1} / {photos.length}
+            </span>
+          )}
+
+          {/* Click to expand hint */}
+          {showHint && (
+            <div className={styles.expandHint}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+              <span>Click to expand</span>
+            </div>
+          )}
+        </div>
+
+        {/* Toggle button for details panel */}
+        <button
+          className={`${styles.detailsToggle} ${showDetails ? styles.detailsToggleActive : ""}`}
+          onClick={() => setShowDetails(!showDetails)}
+          aria-label={showDetails ? "Hide details" : "Show details"}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+
+        {/* Slide-in details panel */}
+        <div className={`${styles.detailsPanel} ${showDetails ? styles.detailsPanelOpen : ""}`}>
+          <div className={styles.detailsContent}>
             <div className={styles.panelHeader}>
               <div className={styles.panelMeta}>
                 {project.badge
@@ -466,28 +574,76 @@ function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
 
-            <div className={styles.panelNav}>
+        {/* Project navigation - fixed at bottom */}
+        <div className={styles.projectNav}>
+          <button
+            className={`${styles.projectNavBtn} ${!hasPrev ? styles.projectNavDisabled : ""}`}
+            onClick={() => hasPrev && onNavigate(allFiltered[currentIdx - 1])}
+            disabled={!hasPrev}
+            aria-label="Previous project"
+          >
+            <span>←</span>
+            <span className={styles.projectNavLabel}>{hasPrev ? allFiltered[currentIdx - 1].name : "—"}</span>
+          </button>
+          <span className={styles.projectNavCount}>{currentIdx + 1} / {allFiltered.length}</span>
+          <button
+            className={`${styles.projectNavBtn} ${styles.projectNavBtnRight} ${!hasNext ? styles.projectNavDisabled : ""}`}
+            onClick={() => hasNext && onNavigate(allFiltered[currentIdx + 1])}
+            disabled={!hasNext}
+            aria-label="Next project"
+          >
+            <span className={styles.projectNavLabel}>{hasNext ? allFiltered[currentIdx + 1].name : "—"}</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+
+      {/* Full-screen lightbox for photos */}
+      {lightboxOpen && (
+        <div className={styles.lightbox} onClick={() => setLightboxOpen(false)}>
+          <button
+            className={styles.lightboxClose}
+            onClick={() => setLightboxOpen(false)}
+            aria-label="Close lightbox"
+          >
+            ✕
+          </button>
+          
+          {photos.length > 1 && (
+            <>
               <button
-                className={`${styles.panelNavBtn} ${!hasPrev ? styles.panelNavDisabled : ""}`}
-                onClick={() => hasPrev && onNavigate(allFiltered[currentIdx - 1])}
-                disabled={!hasPrev}>
-                <span>←</span>
-                <span className={styles.panelNavLabel}>{hasPrev ? allFiltered[currentIdx - 1].name : "—"}</span>
+                className={styles.lightboxPrev}
+                onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+                aria-label="Previous photo"
+              >
+                ‹
               </button>
-              <span className={styles.panelNavCount}>{currentIdx + 1} / {allFiltered.length}</span>
               <button
-                className={`${styles.panelNavBtn} ${styles.panelNavBtnRight} ${!hasNext ? styles.panelNavDisabled : ""}`}
-                onClick={() => hasNext && onNavigate(allFiltered[currentIdx + 1])}
-                disabled={!hasNext}>
-                <span className={styles.panelNavLabel}>{hasNext ? allFiltered[currentIdx + 1].name : "—"}</span>
-                <span>→</span>
+                className={styles.lightboxNext}
+                onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+                aria-label="Next photo"
+              >
+                ›
               </button>
+            </>
+          )}
+
+          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+            <img
+              src={photos[photoIdx].src}
+              alt={photos[photoIdx].alt}
+              className={styles.lightboxImage}
+            />
+            <div className={styles.lightboxCaption}>
+              {photos[photoIdx].alt} ({photoIdx + 1} / {photos.length})
             </div>
           </div>
-
         </div>
-      </div>
+      )}
     </>
   );
 }
@@ -513,35 +669,32 @@ function ProjectCard({ project, onSelect, index }) {
     <article
       className={styles.card}
       ref={ref}
-      style={{ transitionDelay: `${(index % 2) * 100}ms` }}
       onClick={() => onSelect(project)}
-      role="button"
       tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && onSelect(project)}
+      onKeyDown={(e) => { if (e.key === "Enter") onSelect(project); }}
+      style={{ transitionDelay: `${(index % 2) * 100}ms` }}
     >
-      {/* Background — image or gradient */}
+      {/* Background image or gradient */}
       <CardHero project={project} />
 
-      {/* Top metadata row */}
+      {/* Top meta row */}
       <div className={styles.cardTop}>
         <span className={styles.cardType}>{project.badge || project.type}</span>
         <span className={styles.cardYear}>{project.year}</span>
       </div>
 
-      {/* Hover overlay */}
+      {/* Hover overlay with description */}
       <div className={styles.cardOverlay}>
         <p className={styles.cardOverlayDesc}>{project.description}</p>
-        <span className={styles.cardOverlayCta}>
-          Open project <span className={styles.cardOverlayArrow}>→</span>
-        </span>
+        <div className={styles.cardOverlayCta}>
+          View Project <span className={styles.cardOverlayArrow}>→</span>
+        </div>
       </div>
 
-      {/* Bottom name block */}
+      {/* Bottom name block — always visible */}
       <div className={styles.cardBottom}>
-        <p className={styles.cardLocation}>{project.location}</p>
-        <h3 className={styles.cardName} style={{ color: project.accentColor }}>
-          {project.name}
-        </h3>
+        <div className={styles.cardLocation}>{project.location}</div>
+        <h3 className={styles.cardName}>{project.name}</h3>
       </div>
 
       {/* Accent line */}
@@ -574,7 +727,6 @@ export default function ProjectsPage() {
 
       {/* ── HERO ── */}
       <div className={styles.pageHero}>
-        {/* 👇 Drop your studio/workspace photo path here */}
         <div className={styles.pageHeroBg} />
         <img src="/studio/workspace.png" alt="Our studio" className={styles.pageHeroImg} />
         <div className={styles.pageHeroContent}>
@@ -588,7 +740,9 @@ export default function ProjectsPage() {
           {FILTERS.slice(1).map((f, i, arr) => (
             <div key={f.key} className={styles.heroStatGroup}>
               <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>{String(f.count).padStart(2, "0")}</span>
+                <span className={styles.heroStatNum}>
+                  <CounterAnimation end={f.count} duration={2000} padStart={2} />
+                </span>
                 <span className={styles.heroStatLabel}>{f.label}</span>
               </div>
               {i < arr.length - 1 && <div className={styles.heroStatDivider} />}
@@ -627,6 +781,8 @@ export default function ProjectsPage() {
         <a href="/contact" className={styles.footerCtaBtn}>Contact Us →</a>
       </div>
 
+      <Footer />
+
       {/* ── DETAIL PANEL ── */}
       {selectedProject && (
         <DetailPanel
@@ -639,3 +795,5 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
+// Made with Bob

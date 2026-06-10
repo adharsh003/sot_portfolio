@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import styles from "./ContactPage.module.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -30,7 +31,13 @@ export default function ContactPage() {
 
       {/* ── HERO ── */}
       <section className={styles.heroSection}>
-        <div className={styles.heroBg} ref={bgRef} />
+        <div className={styles.heroBg} ref={bgRef}>
+          <img
+            src="/about2.jpg"
+            alt="Studio workspace"
+            className={styles.heroBgImage}
+          />
+        </div>
 
         {/* Architectural grid lines decoration */}
         <div className={styles.heroGrid} aria-hidden="true">
@@ -174,6 +181,60 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* ── OFFICE INFO SECTION ── */}
+      <section className={styles.officeSection}>
+        <div className={styles.officeContainer}>
+          <div className={styles.officeLeft}>
+            <p className={styles.officeEyebrow}>Visit our studio</p>
+            <h2 className={styles.officeHeading}>
+              Where ideas<br />
+              <em>take shape</em>
+            </h2>
+          </div>
+
+          <div className={styles.officeRight}>
+            <div className={styles.officeInfoGrid}>
+              <div className={styles.officeInfoItem}>
+                <div className={styles.officeIconWrap}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div className={styles.officeInfoContent}>
+                  <span className={styles.officeInfoLabel}>Office Location</span>
+                  <span className={styles.officeInfoValue}>
+                    Tirur, Malappuram<br />Kerala, India
+                  </span>
+                  <a
+                    href="https://maps.app.goo.gl/8DTP4W92p67tkcpu8?g_st=ic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.mapLink}
+                  >
+                    View on Map →
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.officeInfoItem}>
+                <div className={styles.officeIconWrap}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div className={styles.officeInfoContent}>
+                  <span className={styles.officeInfoLabel}>Working Hours</span>
+                  <span className={styles.officeInfoValue}>Monday - Saturday<br />8:00 AM - 3:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* ── MANIFESTO STRIP ── */}
       <section className={styles.manifestoSection}>
         <div className={styles.manifestoInner}>
@@ -188,26 +249,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── FOOTER STRIP ── */}
-      <footer className={styles.footerStrip}>
-        <div className={styles.footerLeft}>
-          <span className={styles.footerBrand}>Sketch on Thoughts</span>
-          <span className={styles.footerTagline}>Architecture & Design Studio</span>
-        </div>
-        <div className={styles.footerRight}>
-          <a href="mailto:architects.sot@gmail.com" className={styles.footerLink}>
-            architects.sot@gmail.com
-          </a>
-          <a
-            href="https://www.sketchonthoughts.com"
-            className={styles.footerLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            www.sketchonthoughts.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

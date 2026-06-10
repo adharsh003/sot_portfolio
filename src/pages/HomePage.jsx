@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import styles from './HomePage.module.css';
 import { useNavigate } from "react-router-dom";
 
@@ -14,20 +15,20 @@ export default function HomePage() {
 
       <main className={styles.main}>
         <div className={styles.content}>
-          <h1 className={styles.title}>Architecture.</h1>
+          <h1 className={styles.title}>Sketch on Thoughts.</h1>
 
           <p className={styles.subtitle}>
             Designing spaces that blend structure, nature and human experience.
           </p>
 
           <div className={styles.ctaWrapper}>
-            <button 
+            <button
               className={styles.primaryBtn}
               onClick={() => navigate("/projects")}
             >
               View Projects
             </button>
-            <button 
+            <button
               className={styles.secondaryBtn}
               onClick={() => navigate("/contact")}
             >
@@ -36,6 +37,8 @@ export default function HomePage() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
