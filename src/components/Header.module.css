@@ -28,8 +28,9 @@
 .logoLink {
   display: flex;
   align-items: center;
-  z-index: 101;
+  z-index: 102;
   flex-shrink: 0;
+  position: relative;
 }
 
 .logo {
@@ -108,7 +109,8 @@
   border: none;
   padding: 8px;
   cursor: pointer;
-  z-index: 101;
+  z-index: 102;
+  position: relative;
 }
 
 .hamburger span {
@@ -134,7 +136,7 @@
   background: rgba(8, 8, 7, 0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  z-index: 99;
+  z-index: 100;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -150,9 +152,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 10%;
-  height: 100%;
-  gap: 0.2rem;
+  padding: 8rem 10% 4rem;
+  min-height: 100%;
+  gap: 1.2rem;
 }
 
 .mobileLink {
@@ -165,10 +167,11 @@
   display: flex;
   align-items: baseline;
   gap: 0.8rem;
-  line-height: 1.2;
+  line-height: 1.1;
   opacity: 0;
   transform: translateY(30px);
   transition: color 0.25s ease;
+  padding: 0.3rem 0;
 }
 
 .mobileMenuOpen .mobileLink {
