@@ -186,7 +186,7 @@ export default function ContactPage() {
           {/* WhatsApp */}
           <div
             className={`${styles.card} ${hoveredCard === "whatsapp" ? styles.cardHovered : ""}`}
-            onClick={() => window.open("https://wa.me/918891910853", "_blank")}
+            onClick={() => window.open("https://wa.me/918891910853?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20architectural%20services.", "_blank")}
             onMouseEnter={() => setHoveredCard("whatsapp")}
             onMouseLeave={() => setHoveredCard(null)}
             role="button"
