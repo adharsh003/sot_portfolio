@@ -37,7 +37,15 @@ export default function Footer() {
               <a href="tel:+917736660851" className={styles.footerLink}>
                 +91 77 3 666 0851
               </a>
-              <a 
+              <a
+                href="https://wa.me/918891910853"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerLink}
+              >
+                WhatsApp
+              </a>
+              <a
                 href="https://www.sketchonthoughts.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -64,6 +72,14 @@ export default function Footer() {
                 className={styles.footerLink}
               >
                 Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/company/sot-designs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerLink}
+              >
+                LinkedIn
               </a>
             </div>
 
