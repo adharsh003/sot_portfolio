@@ -11,7 +11,7 @@
 .hero {
   position: fixed;
   inset: 0;
-  background-image: url('/hero-bg.jpg');
+  background-image: url('/hero-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

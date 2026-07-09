@@ -44,7 +44,7 @@ export default function AboutPage() {
         </div>
 
         <div className={styles.right}>
-          <img src="/about1.jpg" alt="Design Philosophy" />
+          <img src="/about1.webp" alt="Design Philosophy" />
         </div>
       </section>
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
   </div>
 
   <div className={styles.right}>
-    <img src="/about2.jpg" alt="Sustainable Architecture" />
+    <img src="/about2.webp" alt="Sustainable Architecture" />
   </div>
 
 </section>
@@ -93,7 +93,7 @@ export default function AboutPage() {
   </div>
 
   <div className={styles.right}>
-    <img src="/about3.jpg" alt="Our Team" />
+    <img src="/about3.webp" alt="Our Team" />
   </div>
 
 </section>

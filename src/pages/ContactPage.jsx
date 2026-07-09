@@ -34,7 +34,7 @@ export default function ContactPage() {
       <section className={styles.heroSection}>
         <div className={styles.heroBg} ref={bgRef}>
           <img
-            src="/about2.jpg"
+            src="/about2.webp"
             alt="Studio workspace"
             className={styles.heroBgImage}
           />
