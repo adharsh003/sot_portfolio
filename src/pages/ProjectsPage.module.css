@@ -1292,3 +1292,46 @@
 
   .footerCta { padding: 6rem 6%; }
 }
+
+/* ================= LOCATION SEO SECTION ================= */
+
+.locationSection {
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.locationInner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.locationEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.locationHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+}
+
+.locationBody {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.locationBody strong {
+  color: var(--stone-light);
+  font-weight: 500;
+}
+

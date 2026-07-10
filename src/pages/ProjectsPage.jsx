@@ -44,7 +44,7 @@ const ALL_PROJECTS = [
     type: "residential",
     year: "2024",
     description:
-      "A modern family home that prioritizes comfort and functionality. The design incorporates spacious interiors, natural materials, and strategic placement of windows to maximize natural light throughout the day.",
+      "A family residence in Kakkanad, Ernakulam, designed for a multi-generational household in Kochi's rapidly urbanising eastern corridor. The design balances privacy and openness across split levels, using natural materials and deep overhangs to temper the coastal humidity.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Kakkanad, Ernakulam" },
@@ -67,11 +67,11 @@ const ALL_PROJECTS = [
     id: "calicut",
     name: "Calicut",
     client: "Mr. Zabeer Mohammed",
-    location: "Vellimadukunnu",
+    location: "Vellimadukunnu, Kozhikode",
     type: "residential",
     year: "2022",
     description:
-      "Set on a naturally sloping terrain in Calicut, this three-level home is shaped by the contours rather than imposed upon them. The spatial planning follows the gradient, creating split levels and dynamic connections between floors.",
+      "Set on a naturally sloping terrain in Vellimadukunnu, Kozhikode, this three-level home is shaped by the contours rather than imposed upon them. The spatial planning follows the gradient of the Calicut hillside, creating split levels and dynamic connections between floors that frame views of the Western Ghats foothills.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Vellimadukunnu, Calicut" },
@@ -148,7 +148,7 @@ const ALL_PROJECTS = [
     type: "residential",
     year: "2023",
     description:
-      "A contemporary residence that harmonizes modern design principles with regional architectural sensibilities. The project emphasizes spatial efficiency and natural ventilation while maintaining a strong connection to the local context.",
+      "A private residence in Dindigul, Tamil Nadu — SOT Designs' first cross-state project — that adapts the firm's Kerala sensibility to the drier Deccan climate. The design prioritises deep shade, cross-ventilation, and a courtyard that doubles as a heat buffer during Tamil Nadu summers.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Dindigul, Tamil Nadu" },
@@ -216,11 +216,11 @@ const ALL_PROJECTS = [
     id: "wayanad",
     name: "Wayanad",
     client: "Travelounge",
-    location: "Wayanad",
+    location: "Wayanad, Kerala",
     type: "commercial",
     year: "2022",
     description:
-      "A contemporary travelounge designed as a social and commercial hub. The architecture responds to Wayanad's lush landscape with layered green walls, natural stone, and timber details.",
+      "A travelounge and social hub in Wayanad, Kerala, designed to sit lightly within the district's dense forest landscape. The architecture responds to Wayanad's high rainfall and humidity with layered green walls, natural laterite stone, and timber details — materials sourced within the region.",
     details: [
       { label: "Type",      value: "Commercial — Hospitality" },
       { label: "Location",  value: "Wayanad, Kerala" },
@@ -259,7 +259,7 @@ const ALL_PROJECTS = [
     type: "residential",
     year: "2023",
     description:
-      "A contemporary residence designed to embrace natural light and ventilation. The architecture features clean lines, open spaces, and a harmonious blend of modern materials with traditional Kerala elements.",
+      "A private residence in Chalakkudi, Thrissur district, where the design draws on the region's rich craft traditions — exposed brick courses, timber screens, and sloped rooflines that echo the vernacular residential fabric of central Kerala while meeting contemporary spatial needs.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Chalakkudi, Thrissur" },
@@ -283,7 +283,7 @@ const ALL_PROJECTS = [
     type: "residential",
     year: "2023",
     description:
-      "A residence that celebrates simplicity and functionality. The design focuses on creating comfortable living spaces that respond to the local climate while maintaining a contemporary aesthetic.",
+      "A residence in Nadapuram, northern Kozhikode district, conceived as a quiet retreat from the coastal town's density. Single-storey living radiates outward from a shaded central hall; wide overhangs and a garden perimeter manage the Malabar coast's intense monsoon rainfall.",
     details: [
       { label: "Type",     value: "Residential" },
       { label: "Location", value: "Nadapuram, Kozhikode" },
@@ -303,14 +303,14 @@ const ALL_PROJECTS = [
     id: "thekkumuri",
     name: "Thekkumuri",
     client: "Private Residence",
-    location: "Thekkumuri",
+    location: "Thekkumuri, Malappuram",
     type: "residential",
     year: "2023",
     description:
-      "A thoughtfully designed home that balances privacy and openness. The architecture features well-proportioned spaces, natural ventilation, and a material palette that ages gracefully with time.",
+      "A home in Thekkumuri, Malappuram, designed around the principle that privacy and openness need not conflict. A layered sequence of semi-outdoor thresholds — a porch, a verandah, a courtyard — mediates between the public road and the private interior, rooted in the traditional Kerala tharavadu spatial logic.",
     details: [
       { label: "Type",     value: "Residential" },
-      { label: "Location", value: "Thekkumuri, Kerala" },
+      { label: "Location", value: "Thekkumuri, Malappuram" },
       { label: "Style",    value: "Contemporary Vernacular" },
     ],
     photos: [
@@ -498,8 +498,13 @@ function DetailPanel({ project, allFiltered, onClose, onNavigate }) {
   }, [onClose, lightboxOpen]);
 
   useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
   }, []);
 
   const currentIdx = allFiltered.findIndex(p => p.id === project.id);
@@ -825,6 +830,24 @@ export default function ProjectsPage() {
           <ProjectCard key={p.id} project={p} onSelect={setSelectedProject} index={i} />
         ))}
       </div>
+
+      {/* ── SEO: WHERE WE'VE WORKED ── */}
+      <section className={styles.locationSection} aria-label="Project locations">
+        <div className={styles.locationInner}>
+          <p className={styles.locationEyebrow}>Where we've worked</p>
+          <h2 className={styles.locationHeading}>Projects across Kerala &amp; India</h2>
+          <p className={styles.locationBody}>
+            SOT Designs has delivered architecture and interior projects in{" "}
+            <strong>Tirur</strong>, <strong>Malappuram</strong>, <strong>Kakkanad (Ernakulam / Kochi)</strong>,{" "}
+            <strong>Kozhikode (Calicut)</strong>, <strong>Nadapuram (Kozhikode)</strong>,{" "}
+            <strong>Thrissur</strong>, <strong>Chalakkudi (Thrissur)</strong>,{" "}
+            <strong>Perinthalmanna</strong>, <strong>Kuttanad (Alappuzha)</strong>,{" "}
+            <strong>Wayanad</strong>, and <strong>Dindigul, Tamil Nadu</strong> — spanning
+            residential homes, commercial spaces, hospitality, and mixed-use buildings.
+            Each project is grounded in site, climate, and the specific culture of its region.
+          </p>
+        </div>
+      </section>
 
       {/* ── FOOTER CTA ── */}
       <div className={styles.footerCta}>
