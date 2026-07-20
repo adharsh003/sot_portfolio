@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CounterAnimation from "../components/CounterAnimation";
@@ -794,6 +795,11 @@ export default function ProjectsPage() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <link rel="canonical" href="https://www.sketchonthoughts.com/projects" />
+        <title>Projects | Sketch on Thoughts (SOT Designs)</title>
+        <meta name="description" content="Explore residential, commercial and interior design projects by Sketch on Thoughts (SOT Designs) across Kerala and India." />
+      </Helmet>
       <Header />
 
       {/* ── HERO ── */}

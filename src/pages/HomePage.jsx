@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from './HomePage.module.css';
@@ -9,6 +10,10 @@ export default function HomePage() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <link rel="canonical" href="https://www.sketchonthoughts.com/" />
+        <title>Sketch on Thoughts (SOT Designs) | Architecture Firm — Kerala &amp; India</title>
+      </Helmet>
       <div className={styles.hero}></div>
 
       <Header />

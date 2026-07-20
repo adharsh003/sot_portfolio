@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CounterAnimation from "../components/CounterAnimation";
@@ -28,6 +29,11 @@ export default function ContactPage() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <link rel="canonical" href="https://www.sketchonthoughts.com/contact" />
+        <title>Contact | Sketch on Thoughts (SOT Designs)</title>
+        <meta name="description" content="Get in touch with Sketch on Thoughts (SOT Designs) — architecture and interior design studio in Tirur, Kerala. Call or email Ar. Mohammed Ali." />
+      </Helmet>
       <Header />
 
       {/* ── HERO ── */}
